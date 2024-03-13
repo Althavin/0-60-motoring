@@ -16,17 +16,20 @@ const Vlogs = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [numVideosToShow, setNumVideosToShow] = useState(10);
   const [search, setSearch] = useState("");
-  const [triggerSearch, setTriggerSearch] = useState(0); 
+  const [triggerSearch, setTriggerSearch] = useState(0);
 
   const fetchVideos = async (): Promise<VideoType[]> => {
     const { data } = await axios.get(`${BASEURL}/youtube?search=${search}`);
     return data.responseEntity;
   };
 
-  const { data: videos, isLoading } = useQuery(["videos", triggerSearch], fetchVideos);
+  const { data: videos, isLoading } = useQuery(
+    ["videos", triggerSearch],
+    fetchVideos
+  );
 
   const handleSearchClick = () => {
-    setTriggerSearch(prev => prev + 1); 
+    setTriggerSearch((prev) => prev + 1);
   };
 
   if (isLoading) return <Loader />;
@@ -38,8 +41,18 @@ const Vlogs = () => {
   return (
     <>
       <Head>
-        <title>Videos</title>
-        <meta name="description" content="0-60 Motoring Vlogs" />
+        <title>Videos - 0-60 Motoring</title>
+        <meta
+          name="description"
+          content="Explore our vlogs at 0-60 Motoring - Our mission is to empower individuals and businesses with our automotive content."
+        />
+        <meta property="og:title" content="Videos - 0-60 Motoring" />
+        <meta
+          property="og:description"
+          content="Explore our vlogs at 0-60 Motoring - Our mission is to empower individuals and businesses with our automotive content!"
+        />
+        <meta property="og:url" content="https://www.0-60motoring.com/vlogs" />
+        <meta property="og:type" content="website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.jpeg" />
       </Head>
