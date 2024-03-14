@@ -2,7 +2,7 @@
 const AboutComponent = () => {
   return (
     <section id="about" className=" sm:mx-8 sm:mb-4">
-    <div className="bg-darkRed sm:bg-black sm:rounded-lg  py-12 sm:max-w-xl md:max-w-full lg:min-w-screen-xl px-4 sm:px-8 lg:px-12  ">
+    <div className="bg-red text-black sm:text-white sm:bg-black sm:rounded-lg  py-12 sm:max-w-xl md:max-w-full lg:min-w-screen-xl px-4 sm:px-8 lg:px-12  ">
       <div className="">
         
         <h2 className="hidden sm:block  text-center text-3xl font-bold tracking-tight text-green mb-6  sm:text-4xl ">
@@ -15,7 +15,7 @@ const AboutComponent = () => {
         </div>
        
    
-        <p className="text-base text-center   text-white md:text-lg  lg:text-xl">
+        <p className="text-base text-center    md:text-lg  lg:text-xl">
           Welcome to 0-60 Motoring, your ultimate destination for everything
           automotive! Our mission is simple: to help you find the perfect car
           that fits your lifestyle and budget while making the entire process

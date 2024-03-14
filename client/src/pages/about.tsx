@@ -1,5 +1,4 @@
 import AboutCards from "@/components/AboutCards";
-import { Hero } from "@/components/sections";
 import AboutComponent from "@/components/sections/AboutComponent";
 import Head from "next/head";
 
