@@ -22,10 +22,10 @@ const NavbarContainer = () => {
       {" "}
       <div className="container py-0">
         <div className="flex justify-between items-center">
-          <div>
+          <Link href="/">
            
             <Image src="/logo.jpeg" alt="logo" width={100} height={100} className="object-cover h-12 w-12  md:h-24 md:w-24 m-4 rounded-lg" />
-          </div>
+          </Link>
           <nav className="hidden md:block mx-2">
             <ul className="flex items-center gap-8">
               {Navlinks.map(({title, link }) => (

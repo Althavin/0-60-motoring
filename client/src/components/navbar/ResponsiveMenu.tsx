@@ -1,23 +1,21 @@
-import { Navlinks } from "@/lib/data"
-import Link from "next/link"
+import { Navlinks } from "@/lib/data";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
-import { FaUserCircle } from "react-icons/fa"
-import {v4 as uuidv4} from 'uuid'
+import { FaUserCircle } from "react-icons/fa";
+import { v4 as uuidv4 } from "uuid";
 
-interface Props{
+interface Props {
   showMenu: boolean;
   setShowMenu: Dispatch<SetStateAction<boolean>>;
-
 }
-const ResponsiveMenu = ({showMenu,setShowMenu}:Props) => {
+const ResponsiveMenu = ({ showMenu, setShowMenu }: Props) => {
+  const router = useRouter();
 
-  const router = useRouter()
-
-  const handleCloseMenu =async(link:string)=>{
-    await router.push(link)
-    setShowMenu(false)
-  }
+  const handleCloseMenu = async (link: string) => {
+    await router.push(link);
+    setShowMenu(false);
+  };
   return (
     <div
       className={`${
@@ -36,7 +34,10 @@ const ResponsiveMenu = ({showMenu,setShowMenu}:Props) => {
           <ul className="space-y-4 text-xl">
             {Navlinks.map((data) => (
               <li key={uuidv4()}>
-                <span  className="mb-5 inline-block " onClick={()=>handleCloseMenu(data.link)}>
+                <span
+                  className="mb-5 inline-block "
+                  onClick={() => handleCloseMenu(data.link)}
+                >
                   {data.title}
                 </span>
               </li>
@@ -50,7 +51,7 @@ const ResponsiveMenu = ({showMenu,setShowMenu}:Props) => {
         </h1>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ResponsiveMenu
+export default ResponsiveMenu;

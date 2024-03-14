@@ -120,7 +120,7 @@ const Footer = () => {
               </a>
               <a
                 target="_blank"
-                href="https://www.youtube.com/@-600Motoring "
+                href="https://www.youtube.com/@0-60motoring "
                 rel="noopener noreferrer"
               >
                 <FaYoutube className="text-xl md:text-3xl hover:text-primary duration-300" />

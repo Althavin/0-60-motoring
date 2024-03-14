@@ -23,7 +23,7 @@ const Testimonial = () => {
 
             {
               testimonialData.map((data, i) => (
-           <TestimonialCard name={data.name} description={data.description}  key={uuidv4()}/>
+           <TestimonialCard name={data.name} description={data.description} image={data.image}  key={uuidv4()}/>
               ))
             }
           </div>

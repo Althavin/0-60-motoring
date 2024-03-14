@@ -55,16 +55,16 @@ const addTimestamps = async () => {
 // mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 //   .then(() => {
 //     console.log('Connected to MongoDB');
-//   //  YoutubeLink.insertMany(youtubeLinks).then(()=>{
-//   //      console.log("Inserted")
-//   //      mongoose.connection.close();
+//    YoutubeLink.insertMany(youtubeLinks).then(()=>{
+//        console.log("Inserted")
+//        mongoose.connection.close();
 
-//   //   }
-//   //   ).catch(console.error)
+//     }
+//     ).catch(console.error)
 
-//     // addTimestamps()
-//     //   .then(() => mongoose.connection.close())
-//     //   .catch(console.error);
+//     addTimestamps()
+//       .then(() => mongoose.connection.close())
+//       .catch(console.error);
 //   })
 //   .catch(console.error);
 
@@ -171,27 +171,27 @@ const addTimestamps = async () => {
 //     console.log('Connected to MongoDB');
 
 //     // Delete all documents from the Youtube model
-//     //return YoutubeLink.deleteMany({});
+//     return YoutubeLink.deleteMany({});
 //   })
-//   // .then(() => {
-//   //   console.log('All documents deleted');
+//   .then(() => {
+//     console.log('All documents deleted');
 
-//   //   // Read the video.json file
-//   //   return fs.promises.readFile('video.json', 'utf8');
-//   // })
-//   // .then(data => {
-//   //   // Parse the JSON data into an array of objects
-//   //   const videos = JSON.parse(data);
+//     // Read the video.json file
+//     return fs.promises.readFile('video2.json', 'utf8');
+//   })
+//   .then(data => {
+//     // Parse the JSON data into an array of objects
+//     const videos = JSON.parse(data);
 
-//   //   // Insert the array of objects into the Youtube model
-//   //   return YoutubeLink.insertMany(videos);
-//   // })
-//   // .then(() => {
-//   //   console.log('All videos inserted');
+//     // Insert the array of objects into the Youtube model
+//     return YoutubeLink.insertMany(videos);
+//   })
+//   .then(() => {
+//     console.log('All videos inserted');
     
-//   //   // Close the database connection
-//   //   mongoose.connection.close();
-//   // })
+//     // Close the database connection
+//     mongoose.connection.close();
+//   })
 //   .catch(err => {
 //     console.error('Error:', err);
 //   });

@@ -80,21 +80,21 @@ export const footerReviews = [
 export const testimonialData = [
   {
     name: "Joel Musau",
-    image: "",
+    image: "/joel_musau.jpeg",
     description:
       "I am grateful to Bill for assisting me to buy my car. He ensured that I got the best deal. ",
     aosDelay: "0",
   },
   {
     name: "Anette Obura ",
-    image: "",
+    image: "/anette_obura.jpeg",
     description:
       "I am really grateful for their services. They took the   time to understand my preferences & budget, and within a short period, they found the perfect car for me. ",
     aosDelay: "300",
   },
   {
     name: "Mwanaisha Mohammed",
-    image: "",
+    image: "/mwanaisha.jpeg",
     description:
       "I am grateful to 0-60 Motoring for their dedication and knowledge of the automotive industry. They helped me to find my dream car easily",
     aosDelay: "1000",
