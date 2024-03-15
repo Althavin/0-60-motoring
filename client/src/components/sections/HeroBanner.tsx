@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsappSquare } from "react-icons/fa";
+import { FaWhatsapp, FaWhatsappSquare } from "react-icons/fa";
 
 const HeroBanner = () => {
   return (
@@ -28,7 +28,7 @@ const HeroBanner = () => {
                 href="https://wa.me/254790364599"
                 rel="noopener noreferrer"
               >
-                <FaWhatsappSquare className=" text-6xl lg:text-8xl text-green  " />
+                <FaWhatsapp className=" text-6xl lg:text-8xl text-green  " />
               </a>
             </div>
           </div>
