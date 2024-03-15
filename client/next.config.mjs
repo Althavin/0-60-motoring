@@ -4,29 +4,28 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'img.youtube.com',
-        port: '',
-      
+        protocol: "https",
+        hostname: "img.youtube.com",
+        port: "",
       },
       {
         protocol: "https",
         hostname: "picsum.photos",
-        port: '',
+        port: "",
       },
       {
-        protocol:"https",
+        protocol: "https",
         hostname: "res.cloudinary.com",
-        port:""
-      }
+        port: "",
+      },
     ],
   },
 
   async rewrites() {
     return [
       {
-        source: '/googleaed096beea148fc0.html',
-        destination: '/google-verification/googleaed096beea148fc0.html',
+        source: "/googleaed096beea148fc0.html",
+        destination: "/google-verification/googleaed096beea148fc0.html",
       },
     ];
   },
