@@ -21,6 +21,7 @@ const Hero = () => {
               DISCOVER NOW
             </button>
              <FaWhatsappSquare className="text-8xl text-green " />
+           
              </div>
           
           </div>

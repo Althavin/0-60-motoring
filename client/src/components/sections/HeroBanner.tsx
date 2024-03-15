@@ -28,7 +28,14 @@ const HeroBanner = () => {
                 href="https://wa.me/254790364599"
                 rel="noopener noreferrer"
               >
-                <FaWhatsappSquare className=" text-6xl lg:text-8xl text-green  " />
+                {/* <FaWhatsappSquare className=" text-6xl lg:text-8xl text-green  " /> */}
+                <Image
+              src="/WhatsAppImage.webp"
+              height={100}
+              width={100}
+              className="h-20 w-20 rounded-full"
+              alt="whatsapp"
+             />
               </a>
             </div>
           </div>
