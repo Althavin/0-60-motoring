@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaWhatsappSquare } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa6";
 
 const Hero = () => {
   return (
@@ -21,7 +20,7 @@ const Hero = () => {
              border-2 border-transparent hover:border-darkRed hover:bg-transparent hover:text-darkRed transition 1s  md:hidden">
               DISCOVER NOW
             </button>
-             <FaWhatsapp className="text-8xl text-green " />
+             <FaWhatsappSquare className="text-8xl text-green " />
              </div>
           
           </div>
