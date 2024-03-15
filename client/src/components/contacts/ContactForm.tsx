@@ -32,7 +32,7 @@ const ContactForm = () => {
     try {
       const response = await fetch(
       
-        "https://formsubmit.co/0to60motoringkenya@gmail.com",
+        "https://formsubmit.co/91cef90dd867a8bd0fdd26004c6a4cce",
         {
           method: "POST",
           headers: {
