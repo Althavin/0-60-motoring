@@ -36,7 +36,7 @@ export default function Home({ videos, blogs }: Props) {
         <meta property="og:type" content="website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.jpeg" />
-        {/* <link rel="preload" href="/car7.png" as="image"></link> */}
+        <link rel="preload" href="/car7.webp" as="image"/>
       </Head>
       <main className=" mt-20 sm:mt-24">
         {/* <Hero /> */}
