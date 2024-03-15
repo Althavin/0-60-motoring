@@ -38,7 +38,7 @@ const ContactForm = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(form),
-          credentials: "include"
+       
         }
       );
       if (response.ok) {
