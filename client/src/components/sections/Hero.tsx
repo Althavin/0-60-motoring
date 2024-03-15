@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="grid  grid-cols-1 md:grid-cols-2 place-items-center">
           <div className="order-2 flex flex-col gap-3 items-center ">
             <Image
-              src="/car7.png"
+              src="/car7.webp"
               alt="car png"
               className="sm:scale-105 md:scale-110 lg:scale-125"
               width={500}

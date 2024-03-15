@@ -9,7 +9,7 @@ const HeroBanner = () => {
         <div className="grid  grid-cols-1 md:grid-cols-2 place-items-center">
           <div className="order-2 flex flex-col gap-3 items-center ">
             <Image
-              src="/car7.png"
+              src="/car7.webp"
               alt="car png"
               className="sm:scale-105 md:scale-110 lg:scale-125"
               width={500}
@@ -20,6 +20,7 @@ const HeroBanner = () => {
                 href="/enquiries"
                 className="px-2 py-2 bg-darkRed rounded-sm text-white
            border-2 border-transparent hover:border-darkRed hover:bg-transparent hover:text-darkRed transition 1s  md:hidden "
+           style={{ width: '150px', height: '50px' }} // Add a fixed width and height
               >
                 DISCOVER NOW
               </Link>
