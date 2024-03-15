@@ -2,6 +2,7 @@ import Button from "@/UI/Button";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import emailjs from '@emailjs/browser';
 interface FormInputs {
   name: string;
   email: string;
@@ -17,24 +18,30 @@ const ContactForm = () => {
 
   const onSubmit = async (data: FormInputs) => {
     try {
-      const response = await fetch(
-        "https://formsubmit.io/send/0to60motoringkenya@gmail.com",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-          mode: "no-cors"
-        }
+
+      const templateParams = {
+        from_name: data.name,
+        to_name: 'YOUR_NAME',
+        message: data.comment,
+        reply_to: data.email
+      };
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICEID || '', // Service ID
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATEID || '', // Template ID
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY|| '' // public key
       );
 
-      if (response.ok) {
+
+      if (response.status === 200) {
+
         toast.success("Sent successfully");
         reset();
       } else {
+      
         console.log(response)
-        throw new Error("Network response was not ok");
+        toast.error("Something wrong happened,try again later")
+       
       }
     } catch (error) {
       toast.error("An error occurred");
