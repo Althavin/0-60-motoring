@@ -29,6 +29,16 @@ const getVisibleLinks = async(req,res)=>{
 
 }
 
+
+const getVisibleLinksLatest = async(req,res)=>{
+    const links = await YoutubeLink.find({visible:true}).sort({createdAt:-1}).limit(5)
+    res.status(StatusCodes.OK).json({
+        message:"Success",
+        responseEntity: links
+    })
+
+}
+
 const getAllLinks = async(req,res)=>{
     const { visible, page, limit,search} = req.query
 
@@ -159,6 +169,7 @@ module.exports = {
     hideLink,
     updateLink,
     showLink,
-    deleteLink
+    deleteLink,
+    getVisibleLinksLatest
 }
 

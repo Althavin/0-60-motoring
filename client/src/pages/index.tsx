@@ -19,6 +19,7 @@ interface Props {
 }
 
 export default function Home({ videos, blogs }: Props) {
+
   return (
     <>
       <Head>
