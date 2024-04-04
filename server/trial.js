@@ -88,6 +88,48 @@ const addTimestamps = async () => {
 //   });
 
 
+// const main = async () => {
+//   try {
+//     await mongoose.connect(process.env.MONGO_URI);
+//     console.log('Connected to MongoDB');
+
+//     const youtubeLinks = await YoutubeLink.find();
+
+//     const updatePromises = youtubeLinks.map(youtubeLink => 
+//       YoutubeLink.updateOne({ _id: youtubeLink._id }, { visible: false })
+//     );
+
+//     await Promise.all(updatePromises);
+//     console.log('All updates completed');
+
+//     await mongoose.connection.close();
+//     console.log('MongoDB connection closed');
+//   } catch (error) {
+//     console.error('An error occurred:', error);
+//   }
+// };
+
+// main();
+
+const main = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('Connected to MongoDB');
+
+    // Update all documents
+    await YoutubeLink.updateMany({}, { visible: true });
+    console.log('All links updated to visible');
+
+    await mongoose.connection.close();
+    console.log('MongoDB connection closed');
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+};
+
+main();
+
+
   // YoutubeLink.find().then(youtubeLinks => {
   //   const updatePromises = youtubeLinks.map(youtubeLink => {
   //     // Extract video id from the link
