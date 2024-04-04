@@ -41,8 +41,8 @@ export default function Home({ videos, blogs }: Props) {
       <main className=" mt-20 sm:mt-24">
         {/* <Hero /> */}
         <HeroBanner />
-        {videos && <Videos videos={videos} />}
-        {blogs && <Blog blogs={blogs} />}
+        {videos.length>1 && <Videos videos={videos} />}
+        {blogs.length>1 && <Blog blogs={blogs} />}
 
         <Testimonial />
         <WhatWeDo />
