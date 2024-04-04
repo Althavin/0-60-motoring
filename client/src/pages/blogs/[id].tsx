@@ -21,6 +21,11 @@ interface Props {
 }
 
 const SingleArticle = ({ blog }: Props) => {
+
+  // if(!blog)
+  // {
+  //   return <div>No data</div>
+  // }
   return (
     <div className="mt-28 max-w-screen-xl mx-auto">
       <main className="my-10">

@@ -55,7 +55,7 @@ export default function Home({ videos, blogs }: Props) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   try {
     const { data } = await axios.get(`${BASEURL}/youtube/latest`);
 
