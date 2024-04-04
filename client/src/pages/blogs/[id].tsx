@@ -35,7 +35,7 @@ const SingleArticle = ({ blog }: Props) => {
       const day = dt.getDate() < 10 ? "0" + dt.getDate() : dt.getDate();
       return day + "/" + month + "/" + dt.getFullYear();
     }
-    return "";
+    return "06/03/2024";
   };
 
   return (
