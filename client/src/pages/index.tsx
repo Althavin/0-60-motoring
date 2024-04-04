@@ -42,7 +42,7 @@ export default function Home({ videos, blogs }: Props) {
         {/* <Hero /> */}
         <HeroBanner />
         {videos.length>1 && <Videos videos={videos} />}
-        {blogs.length>1 && <Blog blogs={blogs} />}
+        {blogs.length>2 && <Blog blogs={blogs} />}
 
         <Testimonial />
         <WhatWeDo />
