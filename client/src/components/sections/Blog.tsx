@@ -50,22 +50,22 @@ const Blog = ({blogs}:Props) => {
                   className="h-72 col-span-2 w-full rounded-lg object-cover"
                   alt=""
                 />
-
-                <Image
+{
+        blogs[1].images[1] &&        <Image
                   height={300}
                   width={300}
                   src={blogs[1].images[1]}
                   className="h-40 w-full rounded-lg object-cover"
                   alt=""
-                />
+                />}
 
-                <Image
+             {  blogs[1].images[2] &&    <Image
                   height={300}
                   width={300}
                   src={blogs[1].images[2]}
                   className="h-40 w-full rounded-lg object-cover"
                   alt=""
-                />
+                />}
               </div>
               <div className="p-5 ">
                 <h4 className="text-xl font-bold">
