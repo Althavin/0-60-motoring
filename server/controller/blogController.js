@@ -53,7 +53,7 @@ const createBlog = async(req,res)=>{
 
 
 const getVisibleBlogs = async(req,res)=>{
-    const blogs = await Blog.find({visible:true})
+    const blogs = await Blog.find({visible:true}).sort({createdAt:-1})
     res.status(StatusCodes.OK).json({
         message:"Success",
         responseEntity: blogs

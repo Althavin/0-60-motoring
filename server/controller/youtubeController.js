@@ -9,7 +9,7 @@ const createLink = async(req,res)=>{
 
     const { link,title,description} = req.body
 
-    const newVideoLink = await YoutubeLink.create({link,title,description})
+    const newVideoLink = await YoutubeLink.create({link,title,description,visible:true})
 
 
     res.status(StatusCodes.CREATED).json({
@@ -21,7 +21,7 @@ const createLink = async(req,res)=>{
 
 
 const getVisibleLinks = async(req,res)=>{
-    const links = await YoutubeLink.find({visible:true})
+    const links = await YoutubeLink.find({visible:true}).sort({createdAt:-1})
     res.status(StatusCodes.OK).json({
         message:"Success",
         responseEntity: links

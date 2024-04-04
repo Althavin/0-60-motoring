@@ -26,6 +26,18 @@ const SingleArticle = ({ blog }: Props) => {
   // {
   //   return <div>No data</div>
   // }
+
+  const formatDate = (date: any) => {
+    if (date) {
+      const dt = new Date(date);
+      const month =
+        dt.getMonth() + 1 < 10 ? "0" + (dt.getMonth() + 1) : dt.getMonth() + 1;
+      const day = dt.getDate() < 10 ? "0" + dt.getDate() : dt.getDate();
+      return day + "/" + month + "/" + dt.getFullYear();
+    }
+    return "";
+  };
+
   return (
     <div className="mt-28 max-w-screen-xl mx-auto">
       <main className="my-10">
@@ -65,7 +77,7 @@ const SingleArticle = ({ blog }: Props) => {
 
               <div>
                 <p className="font-semibold text-gray-200 text-sm">Author</p>
-                <p className="font-semibold text-gray-400 text-xs">6 March </p>
+                <p className="font-semibold text-gray-400 text-xs">{formatDate(blog.createdAt)} </p>
               </div>
             </div>
           </div>
