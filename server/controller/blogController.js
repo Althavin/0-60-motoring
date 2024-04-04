@@ -53,7 +53,20 @@ const createBlog = async(req,res)=>{
 
 
 const getVisibleBlogs = async(req,res)=>{
-    const blogs = await Blog.find({visible:true}).sort({createdAt:-1})
+
+    const { search } = req.query
+
+    const where = {visible:true}
+
+    if(search){
+        where.title = new RegExp(search, "i")
+    }
+
+    const blogs = await Blog.find(where).sort({createdAt:-1})
+
+
+
+   
     res.status(StatusCodes.OK).json({
         message:"Success",
         responseEntity: blogs

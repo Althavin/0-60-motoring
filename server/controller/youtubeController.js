@@ -21,7 +21,17 @@ const createLink = async(req,res)=>{
 
 
 const getVisibleLinks = async(req,res)=>{
-    const links = await YoutubeLink.find({visible:true}).sort({createdAt:-1})
+
+    const { search} = req.query
+
+    const where = {visible:true}
+
+    if(search){
+        where.title = new RegExp(search, "i")
+    }
+
+    const links = await YoutubeLink.find(where).sort({createdAt:-1})
+
     res.status(StatusCodes.OK).json({
         message:"Success",
         responseEntity: links
