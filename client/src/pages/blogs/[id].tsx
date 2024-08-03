@@ -1,12 +1,13 @@
 import { BlogType } from "@/@types/blogs";
 import axios from "axios";
-import { GetStaticPropsContext } from "next";
+import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
 import parse from "html-react-parser";
 import { ArticleImage } from "@/components";
 import Link from "next/link";
 import { FaUserCircle } from "react-icons/fa";
 import { BASEURL } from "@/baseURL";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface PathsResponse {
   responseEntity: BlogType[];
@@ -22,11 +23,7 @@ interface Props {
 
 const SingleArticle = ({ blog }: Props) => {
 
-  // if(!blog)
-  // {
-  //   return <div>No data</div>
-  // }
-
+ 
   const formatDate = (date: any) => {
     if (date) {
       const dt = new Date(date);
@@ -84,9 +81,9 @@ const SingleArticle = ({ blog }: Props) => {
         </div>
 
         <div className="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed space-y-3">
-          <div className="pb-6">{parse(blog.body)}</div>
+          <div className="pb-6">{parse(blog?.body|| "")}</div>
           {
-            blog.images.slice(1).map(image=>(
+            blog?.images?.slice(1).map(image=>(
               <ArticleImage image={image} alt={blog.title} key={image}/>
             ))
           }
@@ -96,39 +93,45 @@ const SingleArticle = ({ blog }: Props) => {
   );
 };
 
-export const getStaticPaths = async () => {
-  const { data } = await axios.get<PathsResponse>(
-    `${BASEURL}/blogs`
-  );
+// export const getStaticPaths = async () => {
+//   const { data } = await axios.get<PathsResponse>(
+//     `${BASEURL}/blogs`
+//   );
 
-  const { responseEntity: blogs } = data;
+//   const { responseEntity: blogs } = data;
 
-  const paths = blogs.map((blog) => ({
-    params: {
-      id: blog._id,
-    },
-  }));
+//   const paths = blogs.map((blog) => ({
+//     params: {
+//       id: blog._id,
+//     },
+//   }));
 
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// };
 
-export const getStaticProps = async (context: GetStaticPropsContext) => {
+export const getServerSideProps = async (context: GetServerSidePropsContext) => {
   const { params } = context;
-
   const { id } = params as { id: string };
 
-  const { data } = await axios.get<PropsResponse>(
-    `${BASEURL}/blogs/${id}`
-  );
+  try {
+    const { data } = await axios.get(
+      `${process.env.BASE_URL}/api/v1/blogs/${id}`
+    );
 
-  const blog = data.responseEntity;
-
-  return {
-    props: { blog },
-  };
+    return {
+      props: {
+        blog: data.responseEntity,
+      },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 };
+
 
 export default SingleArticle;
