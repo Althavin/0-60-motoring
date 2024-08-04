@@ -8,6 +8,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { BASEURL } from "@/baseURL";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import axiosInstance from "@/lib/axiosInstance";
 
 interface PathsResponse {
   responseEntity: BlogType[];
@@ -117,7 +118,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   const { id } = params as { id: string };
 
   try {
-    const { data } = await axios.get(
+    const { data } = await axiosInstance.get(
       `${process.env.BASE_URL}/api/v1/blogs/${id}`
     );
 
