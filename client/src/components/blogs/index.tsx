@@ -7,6 +7,7 @@ import { BASEURL } from "@/baseURL";
 import { useQuery } from "react-query";
 import Loader from "@/UI/Loader";
 import { FaSearch } from "react-icons/fa";
+import axiosInstance from "@/lib/axiosInstance";
 
 const BlogPage = () => {
 
@@ -16,7 +17,7 @@ const BlogPage = () => {
   const [triggerSearch, setTriggerSearch] = useState(0); 
 
   const fetchBlogs = async (): Promise<BlogType[]> => {
-    const { data } = await axios.get(`${BASEURL}/blogs?search=${search}`);
+    const { data } = await axiosInstance.get(`${BASEURL}/blogs?search=${search}`);
     return data.responseEntity;
   };
 

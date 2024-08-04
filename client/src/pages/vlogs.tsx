@@ -2,6 +2,7 @@ import { VideoType } from "@/@types/video";
 import Loader from "@/UI/Loader";
 import { BASEURL } from "@/baseURL";
 import { YouTubeVideo } from "@/components";
+import axiosInstance from "@/lib/axiosInstance";
 import axios from "axios";
 import Head from "next/head";
 import { useRef, useState } from "react";
@@ -19,7 +20,7 @@ const Vlogs = () => {
   const [triggerSearch, setTriggerSearch] = useState(0);
 
   const fetchVideos = async (): Promise<VideoType[]> => {
-    const { data } = await axios.get(`${BASEURL}/youtube?search=${search}`);
+    const { data } = await axiosInstance.get(`${BASEURL}/youtube?search=${search}`);
     return data.responseEntity;
   };
 

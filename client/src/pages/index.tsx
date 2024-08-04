@@ -10,6 +10,7 @@ import {
   Videos,
   WhatWeDo,
 } from "@/components/sections";
+import axiosInstance from "@/lib/axiosInstance";
 import axios from "axios";
 import Head from "next/head";
 
@@ -58,9 +59,9 @@ export default function Home({ videos, blogs }: Props) {
 
 export const getServerSideProps = async () => {
   try {
-    const { data } = await axios.get(`${BASEURL}/youtube/latest`);
+    const { data } = await axiosInstance.get(`${BASEURL}/youtube/latest`);
 
-    const { data: blogsResponse } = await axios.get(`${BASEURL}/blogs`);
+    const { data: blogsResponse } = await axiosInstance.get(`${BASEURL}/blogs`);
 
     return {
       props: {
