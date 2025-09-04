@@ -40,18 +40,14 @@ export default function Home({ videos, blogs }: Props) {
         <link rel="icon" href="/logo.jpeg" />
         <link rel="preload" href="/car7.webp" as="image"/>
       </Head>
-      <main className=" mt-20 sm:mt-24">
-        {/* <Hero /> */}
+            <main className="pt-20">
         <HeroBanner />
         {videos.length>1 && <Videos videos={videos} />}
         {blogs.length>2 && <Blog blogs={blogs} />}
-
         <Testimonial />
         <WhatWeDo />
-        <Services />
-
-        {/* <Contact /> */}
         <AboutComponent />
+        <Services />
       </main>
     </>
   );

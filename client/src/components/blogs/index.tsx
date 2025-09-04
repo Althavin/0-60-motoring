@@ -18,6 +18,7 @@ const BlogPage = () => {
 
   const fetchBlogs = async (): Promise<BlogType[]> => {
     const { data } = await axiosInstance.get(`${BASEURL}/blogs?search=${search}`);
+    console.log("this is data", data);
     return data.responseEntity;
   };
 
